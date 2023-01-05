@@ -26,11 +26,17 @@ h1 {
 }
 
 *::-webkit-scrollbar-track {
-  background: linear-gradient(90deg, #434343, #434343 1px, #111 0, #111);
+  background: linear-gradient(
+    90deg,
+    variables.$gray-medium,
+    variables.$gray-medium 1px,
+    variables.$black-dark 0,
+    variables.$black-dark
+  );
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #303030;
+  background-color: variables.$gray-dark;
   border-radius: 10px;
   // border: 2px solid variables.$white;
   box-shadow: inset 2px 2px 2px rgba(230, 222, 222, 0.568), inset -2px -2px 2px rgba(90, 87, 87, 0.37);
