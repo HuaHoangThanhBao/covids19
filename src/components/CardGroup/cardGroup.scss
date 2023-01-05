@@ -16,16 +16,10 @@
     &-item {
       --columns: 2;
     }
-    &-content {
-      font-size: 3.5rem;
-    }
   }
   @media screen and (max-width: 600px) {
     &-item {
       --columns: 1;
-    }
-    &-content {
-      font-size: 4.3rem;
     }
   }
 }

@@ -53,9 +53,22 @@
     font-weight: 700;
     padding: 1rem;
   }
+  @media screen and (min-width: 601px) and (max-width: 1024px) {
+    &-content {
+      font-size: 3.5rem;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    &-content {
+      font-size: 4.3rem;
+    }
+  }
   @media screen and (max-width: 468px) {
     &-title {
       font-size: 1.2rem;
+    }
+    &-content {
+      font-size: 3.7rem;
     }
   }
 }
