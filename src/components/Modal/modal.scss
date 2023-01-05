@@ -1,0 +1,55 @@
+@use '../../styles/variables';
+
+.modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: variables.$black-op-05;
+  &-content {
+    margin: 0 auto;
+    margin-top: 5rem;
+    width: 500px;
+    min-height: 300px;
+    border-radius: 1rem;
+    background-color: variables.$white;
+    position: relative;
+    color: variables.$black;
+    padding: 2rem;
+    h4 {
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    & > p {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      span {
+        font-weight: 500;
+      }
+    }
+  }
+  &-button {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    height: 3rem;
+    width: 3rem;
+    color: variables.$white;
+    font-size: 0.9rem;
+    color: variables.$light-gray;
+    &:hover {
+      color: variables.$black;
+    }
+  }
+  .country-img {
+    width: 10rem;
+    height: 10rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .spinner {
+    margin: 3rem auto;
+  }
+}

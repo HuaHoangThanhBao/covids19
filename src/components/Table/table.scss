@@ -1,0 +1,52 @@
+@use '../../styles/variables';
+@use '../../styles/mixins';
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  &-container {
+    max-height: 40rem;
+    overflow-y: scroll;
+    margin: 2rem 0;
+  }
+  &-wrapper {
+    .spinner {
+      margin: 3rem auto;
+    }
+  }
+  thead tr {
+    background-color: variables.$green-dark;
+    color: variables.$white;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  th,
+  td {
+    padding: 12px 15px;
+  }
+  tbody tr {
+    border-bottom: 1px solid variables.$white;
+    cursor: pointer;
+    &:hover {
+      td {
+        color: variables.$green-dark;
+      }
+    }
+    &:nth-of-type(even) {
+      background-color: variables.$white;
+      color: variables.$black;
+    }
+    &:last-of-type {
+      border-bottom: 2px solid variables.$green-dark;
+    }
+    &.active-row {
+      font-weight: 700;
+      color: variables.$green-dark;
+    }
+  }
+}

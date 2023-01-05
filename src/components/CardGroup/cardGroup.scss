@@ -1,0 +1,81 @@
+@use '../../styles/variables';
+@use '../../styles/mixins';
+
+.card {
+  margin-left: calc(-1 * (var(--spacing)));
+  &-item {
+    float: left;
+    width: calc(calc(100% / var(--columns)) - var(--spacing));
+    height: 13rem;
+    margin-left: var(--spacing);
+    margin-bottom: var(--spacing);
+    padding-top: 2.1rem;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 0.3rem;
+    &.blue-light {
+      background-color: variables.$blue-light;
+      @include mixins.longshadow(variables.$blue-light-shadow, variables.$blue-light, 60);
+    }
+    &.blue-dark {
+      background-color: variables.$blue-dark;
+      @include mixins.longshadow(variables.$blue-dark-shadow, variables.$blue-dark, 60);
+    }
+    &.green {
+      background-color: variables.$green;
+      @include mixins.longshadow(variables.$green-shadow, variables.$green, 60);
+    }
+    &.yellow {
+      background-color: variables.$yellow;
+      @include mixins.longshadow(variables.$yellow-shadow, variables.$yellow, 60);
+    }
+    &.yellow-dark {
+      background-color: variables.$yellow-dark;
+      @include mixins.longshadow(variables.$yellow-dark-shadow, variables.$yellow-dark, 60);
+    }
+    &.red {
+      background-color: variables.$red;
+      @include mixins.longshadow(variables.$red-shadow, variables.$red, 60);
+    }
+  }
+  &-title {
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-shadow: none;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  &-desc {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-right: 0.25rem;
+    text-transform: capitalize;
+  }
+  &-content {
+    font-size: 4rem;
+    font-weight: 700;
+    padding: 1rem;
+  }
+  .spinner {
+    margin: 1rem auto;
+  }
+  &::after {
+    clear: left;
+  }
+  @media screen and (min-width: 601px) and (max-width: 1024px) {
+    &-item {
+      --columns: 2;
+    }
+    &-content {
+      font-size: 3.5rem;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    &-item {
+      --columns: 1;
+    }
+    &-content {
+      font-size: 4.3rem;
+    }
+  }
+}

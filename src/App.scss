@@ -1,0 +1,36 @@
+@use './styles/variables';
+@use './styles/mixins';
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  color: variables.$white;
+}
+
+h1 {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+/* Scrollbar */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: variables.$green variables.$black;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 13px;
+}
+
+*::-webkit-scrollbar-track {
+  background: variables.$black;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: variables.$green;
+  border-radius: 10px;
+  border: 2px solid variables.$white;
+}
