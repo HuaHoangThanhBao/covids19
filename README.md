@@ -1,42 +1,22 @@
-# Project - *Movies*
+# Project - *Covids19*
 
-**Movies** is a movies app using the [The Movie Database API](https://developers.themoviedb.org/3).
-
-Time spent: **35** hours spent in total
+**Covids19** is a movies app using the [Covid API](https://api.covid19api.com).
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [x] User can view a list of movies currently playing in theaters. Poster images load asynchronously.
-- [x] User can view movie details by tapping on a cell.
-- [x] User sees loading state while waiting for the API.
-- [x] User sees an error message when there is a network error.
-- [x] User can pull to refresh the movie list.
-- [x] Simple responsive.
+- [x] Make a list of countries which are most affected by Covid-19, and sort by the below rules:
+  - The most total confirmed cases
+  - The highest number of deaths
+  - The least number of recovered cases
+- [x] Be able to click to show a popup displaying the selected country's information such as name, flag image, population, capital, region, subregion.
 
 The following **optional** features are implemented:
 
-- [x] Add a tab bar for **Now Playing** and **Top Rated** movies.
-- [x] Implement segmented control to switch between list view and grid view.
-- [x] Add a search bar.
-- [x] All images fade in.
-- [x] Implement lazy load image.
-- [x] Customize the highlight and selection effect of the cell.
-- [x] Improve UX loading by skeleton loading.
-- [x] Enhance responsive.
-
-The following **additional** features are implemented:
-
-- [x] Movie list pagination
-- [x] Code splitting
-- [x] Unit test with React Testing Library
-
-## Video Walkthrough
-
-Here's a walkthrough of implemented user stories:
-
-![bandicam-2022-12-27-22-14-19-774](https://user-images.githubusercontent.com/36154018/209686790-9fe6dcad-339e-498a-9b9e-6b6f237aa176.gif)
+- [x] Improve UI/UX: spinner-loader, responsive design, etc.
+- [x] Create UI manually (not using any library).
+- [x] Deploy to a platform.
 
 ## License
 
