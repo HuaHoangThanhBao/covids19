@@ -1,4 +1,5 @@
 import { Spinner } from '../Spinner'
+import './cardItem.scss'
 
 interface CardItemProps {
   smallTitle: string
