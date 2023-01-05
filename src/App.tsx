@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useRef, Suspense } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getCountryDetail, getCovidSummary } from './apis/covids'
 import { CardGroup } from './components/CardGroup'
@@ -6,10 +6,17 @@ import { Select } from './components/Select'
 import { Spinner } from './components/Spinner'
 import { Modal } from './components/Modal'
 import { Country } from './types/covid.type'
-import { Table } from './components/Table'
+import { Selection } from './types/selection.type'
 import './App.scss'
 
+const Table = React.lazy(() => import('./components/Table'))
+
 function App() {
+  const selections = useRef<Selection[]>([
+    { value: 0, option: 'The most total confirmed cases' },
+    { value: 1, option: 'The highest number of deaths' },
+    { value: 2, option: 'The least number of recovered cases' }
+  ])
   const [sortValue, setSortValue] = useState(0)
   const [countryCode, setCountryCode] = useState('')
   const [isShowDetail, setIsShowDetail] = useState(false)
@@ -41,14 +48,16 @@ function App() {
   }
 
   const sortList = useMemo(() => {
+    const list = data?.data?.Countries
+    if (!list) return []
     switch (sortValue) {
       case 0:
       default:
-        return data?.data?.Countries?.sort((a, b) => b.TotalConfirmed - a.TotalConfirmed)
+        return list?.sort((a, b) => b.TotalConfirmed - a.TotalConfirmed)
       case 1:
-        return data?.data?.Countries?.sort((a, b) => b.TotalDeaths - a.TotalDeaths)
+        return list?.sort((a, b) => b.TotalDeaths - a.TotalDeaths)
       case 2:
-        return data?.data?.Countries?.sort((a, b) => a.TotalRecovered - b.TotalRecovered)
+        return list?.sort((a, b) => a.TotalRecovered - b.TotalRecovered)
     }
   }, [data, sortValue])
 
@@ -56,8 +65,13 @@ function App() {
     <div className='app'>
       <h1>Covid-19 Coronavirus Tracker</h1>
       <CardGroup data={data?.data} isLoading={isLoading} />
-      <Select onSelectChange={onSelectChange} />
-      <Table sortList={sortList} onShowDetail={onShowDetail} isLoading={isLoading} />
+      <div className='select-group'>
+        <span className='select-title'>Sort by: </span>
+        <Select selections={selections.current} onSelectChange={onSelectChange} />
+      </div>
+      <Suspense fallback={<Spinner style={{ margin: '2rem auto' }} />}>
+        <Table sortList={sortList} onShowDetail={onShowDetail} />
+      </Suspense>
       <Modal isShow={isShowDetail} onClose={handleShowModal}>
         {isLoadingContry && <Spinner />}
         {!isLoadingContry && counTryDetail?.data && (

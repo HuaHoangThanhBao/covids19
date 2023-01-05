@@ -1,26 +1,19 @@
 @use '../../styles/variables';
 
-select {
-  appearance: none;
-  outline: 0;
-  border: 0;
-  box-shadow: none;
-  padding: 0 0.1em;
-  color: variables.$black;
-  background-color: variables.$white;
-  background-image: none;
-  cursor: pointer;
-  border-radius: 0.3rem;
-  padding: 0.8rem 3.1rem 0.8rem 0.25rem;
-}
-
 .select {
   position: relative;
-  width: 22rem;
-  border-radius: 0.25em;
+  display: flex;
+  width: 20rem;
+  height: 3rem;
+  line-height: 3;
   overflow: hidden;
-  span {
-    vertical-align: baseline;
+  border-radius: 0.25rem;
+  &-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  &-title {
     margin-right: 1rem;
   }
   &::after {
@@ -28,12 +21,34 @@ select {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 1em;
-    background-color: variables.$gray;
-    transition: 0.25s all ease;
+    padding: 0 1rem;
+    background: variables.$gray;
+    cursor: pointer;
     pointer-events: none;
+    transition: 0.25s all ease;
   }
   &:hover::after {
-    color: variables.$orange;
+    color: variables.$green;
+  }
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: variables.$white;
+    background-image: none;
+    flex: 1;
+    padding: 0 0.5rem;
+    color: variables.$black;
+    cursor: pointer;
+    font-size: 1rem;
+    border-top-right-radius: 1.2rem;
+    border-bottom-right-radius: 1.2rem;
+    &::-ms-expand {
+      display: none;
+    }
   }
 }

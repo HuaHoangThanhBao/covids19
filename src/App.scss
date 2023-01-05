@@ -17,7 +17,7 @@ h1 {
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: variables.$green variables.$black;
+  scrollbar-color: variables.$gray-dark variables.$black;
 }
 
 /* Chrome, Edge, and Safari */
@@ -26,11 +26,12 @@ h1 {
 }
 
 *::-webkit-scrollbar-track {
-  background: variables.$black;
+  background: linear-gradient(90deg, #434343, #434343 1px, #111 0, #111);
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: variables.$green;
+  background-color: #303030;
   border-radius: 10px;
-  border: 2px solid variables.$white;
+  // border: 2px solid variables.$white;
+  box-shadow: inset 2px 2px 2px rgba(230, 222, 222, 0.568), inset -2px -2px 2px rgba(90, 87, 87, 0.37);
 }

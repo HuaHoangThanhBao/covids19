@@ -1,5 +1,9 @@
 import './spinner.scss'
 
-export const Spinner = () => {
-  return <div className='spinner'></div>
+interface SpinnerProps {
+  style?: React.CSSProperties
+}
+
+export const Spinner = ({ style }: SpinnerProps) => {
+  return <div className='spinner' style={style}></div>
 }
