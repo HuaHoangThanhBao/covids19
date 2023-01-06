@@ -1,10 +1,11 @@
+import { numberWithCommas } from '../../utils/format'
 import { Spinner } from '../Spinner'
 import './cardItem.scss'
 
 interface CardItemProps {
   smallTitle: string
   title: string
-  content?: string | number
+  content: number
   className?: string
   isLoading: boolean
 }
@@ -16,7 +17,7 @@ export const CardItem = ({ smallTitle, title, content, className, isLoading }: C
         <span className='card-desc'>{smallTitle}</span>
         {title}
       </h2>
-      {!isLoading && <h3 className='card-content'>{content}</h3>}
+      {!isLoading && <h3 className='card-content'>{numberWithCommas(content)}</h3>}
       {isLoading && <Spinner />}
     </div>
   )

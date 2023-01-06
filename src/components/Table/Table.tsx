@@ -4,6 +4,7 @@ import { RootState } from '../../app/store'
 import { PageSize, SiblingCount } from '../../constants'
 import { Country } from '../../types/covid.type'
 import { SortColumn, SortOrder } from '../../types/sort.type'
+import { numberWithCommas } from '../../utils/format'
 import { Pagination } from '../Pagination'
 import { Spinner } from '../Spinner'
 import './table.scss'
@@ -68,9 +69,9 @@ const Table = ({ columns, onShowDetail, handleSorting }: TableProps) => {
                   currentTableData.map((country) => (
                     <tr key={country.ID} onClick={() => onShowDetail(country)}>
                       <td>{country.Country}</td>
-                      <td>{country.TotalConfirmed}</td>
-                      <td>{country.TotalDeaths}</td>
-                      <td>{country.TotalRecovered}</td>
+                      <td>{numberWithCommas(country.TotalConfirmed)}</td>
+                      <td>{numberWithCommas(country.TotalDeaths)}</td>
+                      <td>{numberWithCommas(country.TotalRecovered)}</td>
                     </tr>
                   ))}
               </tbody>
