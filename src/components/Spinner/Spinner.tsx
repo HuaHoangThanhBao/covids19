@@ -5,5 +5,9 @@ interface SpinnerProps {
 }
 
 export const Spinner = ({ style }: SpinnerProps) => {
-  return <div className='spinner' style={style}></div>
+  return (
+    <div className='spinner-container'>
+      <div className='spinner' style={style}></div>
+    </div>
+  )
 }

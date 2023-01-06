@@ -7,7 +7,7 @@
   top: 0;
   bottom: 0;
   background-color: variables.$black-op-05;
-  padding: 1rem;
+  padding: 1.5rem;
   &-content {
     margin: 0 auto;
     margin-top: 5rem;
@@ -17,41 +17,50 @@
     background-color: variables.$white;
     position: relative;
     color: variables.$black;
-    padding: 2rem;
     h4 {
       margin-bottom: 2rem;
       font-size: 1.8rem;
       font-weight: 700;
     }
     & > p {
-      margin-bottom: 1rem;
+      padding: 0 1rem 1.5rem 1rem;
       font-size: 1.2rem;
-      span {
-        font-weight: 500;
-      }
     }
   }
   &-button {
     position: absolute;
-    right: 1rem;
-    top: 0.5rem;
+    right: -1.5rem;
+    top: -1.5rem;
     height: 3rem;
     width: 3rem;
     color: variables.$white;
     font-size: 0.9rem;
-    color: variables.$light-gray;
-    &:hover {
-      color: variables.$black;
+    color: variables.$white;
+    background-color: variables.$red;
+    border-radius: 50%;
+  }
+  .country {
+    &-img {
+      width: 100%;
+      min-height: 20rem;
+      margin-bottom: 1.5rem;
+      object-fit: cover;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+    }
+    &-name {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    &-info {
+      margin-left: 0.2rem;
     }
   }
-  .country-img {
-    width: 10rem;
-    height: 10rem;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-  }
   .spinner {
-    margin: 3rem auto;
+    margin: 0 auto;
+    &-container {
+      padding: 3rem;
+    }
   }
   @media screen and (max-width: 468px) {
     &-content {

@@ -17,7 +17,7 @@ export const Modal = ({ isShow, onClose, children }: ModalProps) => {
         <div className='modal-content' ref={ref}>
           {children}
           <button className='modal-button' onClick={onClose}>
-            Close
+            X
           </button>
         </div>
       </div>

@@ -17,6 +17,10 @@ const countryDetailInitialState: CountryDetail = {
       svg: ''
     },
     flag: '',
+    flags: {
+      png: '',
+      svg: ''
+    },
     region: '',
     startOfWeek: '',
     status: '',

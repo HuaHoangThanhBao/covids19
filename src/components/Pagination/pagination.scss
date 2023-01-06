@@ -11,18 +11,14 @@
     user-select: none;
   }
   &-item {
-    display: flex;
-    justify-content: center;
     width: 2rem;
     height: 2rem;
     margin: auto 0.25rem;
     color: variables.$white;
-    display: flex;
-    align-items: center;
     border-radius: 50%;
-    line-height: 0;
+    line-height: 2.2;
     font-size: 1rem;
-    min-width: 2rem;
+    text-align: center;
     &.dots:hover {
       background-color: inherit;
       color: variables.$white;
@@ -40,7 +36,7 @@
       background-color: variables.$white;
       color: variables.$black;
     }
-    .arrow {
+    &.arrow {
       position: relative;
       &::before {
         position: absolute;

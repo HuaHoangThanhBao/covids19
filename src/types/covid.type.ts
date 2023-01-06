@@ -30,15 +30,18 @@ export type CountryDetail = {
     common: string
     official: string
   }
-  coatOfArms: {
-    png: string
-    svg: string
-  },
-  flag: string
+  coatOfArms: ImageSrc,
+  flag: string,
+  flags: ImageSrc,
   region: string
   startOfWeek: string
   status: string
   subregion: string
   capital: [],
   population: number
+}
+
+type ImageSrc = {
+  png: string
+  svg: string
 }

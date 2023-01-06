@@ -43,13 +43,11 @@ export const Pagination = ({
   return (
     <ul className={classnames('pagination-container', { [className]: className })}>
       <li
-        className={classnames('pagination-item', {
+        className={classnames('pagination-item arrow left', {
           disabled: currentPage === 1
         })}
         onClick={onPrevious}
-      >
-        <div className='arrow left' />
-      </li>
+      ></li>
       {paginationRange.map((pageNumber: string | number, index) => {
         if (pageNumber === DOTS) {
           return (
@@ -72,13 +70,11 @@ export const Pagination = ({
         )
       })}
       <li
-        className={classnames('pagination-item', {
+        className={classnames('pagination-item arrow right', {
           disabled: currentPage === lastPage
         })}
         onClick={onNext}
-      >
-        <div className='arrow right' />
-      </li>
+      ></li>
     </ul>
   )
 }

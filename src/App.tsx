@@ -47,31 +47,33 @@ function App() {
         {!countryDetail.flag && <Spinner />}
         {countryDetail.flag && (
           <>
-            <h4>Country Info</h4>
-            <img className='country-img' src={countryDetail.coatOfArms.png} alt='' />
-            <p>
-              Name: <span>{countryDetail.name.common}</span>
+            <img
+              className='country-img'
+              src={Object.keys(countryDetail.flags).length !== 0 ? countryDetail.flags.png : ''}
+              alt=''
+            />
+            <p className='country-name'>
+              {Object.keys(countryDetail.name).length !== 0 ? countryDetail.name.common : ''}
             </p>
             <p>
-              Flag: <span>{countryDetail.flag}</span>
+              Population:
+              <span className='country-info'>{countryDetail.population}</span>
             </p>
             <p>
-              Population: <span>{countryDetail.population}</span>
+              Capital:
+              {Object.keys(countryDetail.capital).length !== 0 &&
+                countryDetail.capital.map((cap, index) => (
+                  <span key={cap} className='country-info'>
+                    {cap}
+                    {`${index !== countryDetail.capital.length - 1 ? ' - ' : ''}`}
+                  </span>
+                ))}
             </p>
             <p>
-              Capital:{' '}
-              {countryDetail.capital.map((cap, index) => (
-                <span key={cap}>
-                  {cap}
-                  {`${index !== countryDetail.capital.length - 1 ? ' - ' : ''}`}
-                </span>
-              ))}
+              Region:<span className='country-info'>{countryDetail.region}</span>
             </p>
             <p>
-              Region: <span>{countryDetail.region}</span>
-            </p>
-            <p>
-              Subregion: <span>{countryDetail.subregion}</span>
+              Subregion:<span className='country-info'>{countryDetail.subregion}</span>
             </p>
           </>
         )}
