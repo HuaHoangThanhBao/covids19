@@ -1,25 +1,21 @@
-import 'react-app-polyfill/ie11'
-import 'react-app-polyfill/stable'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
+import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-// import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { store } from './app/store'
 import App from './App'
 import './index.scss'
 
-const queryClient = new QueryClient()
 const container = document.getElementById('root')!
 const root = createRoot(container)
 
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
+      <Provider store={store}>
         <App />
-        {/* <ReactQueryDevtools initialIsOpen={true} /> */}
-      </QueryClientProvider>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 )

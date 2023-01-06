@@ -6,18 +6,17 @@ interface CardItemProps {
   title: string
   content?: string | number
   className?: string
-  isLoading: boolean
 }
 
-export const CardItem = ({ smallTitle, title, content, className, isLoading }: CardItemProps) => {
+export const CardItem = ({ smallTitle, title, content, className }: CardItemProps) => {
   return (
     <div className={`card-item ${className}`}>
       <h2 className='card-title'>
         <span className='card-desc'>{smallTitle}</span>
         {title}
       </h2>
-      {!isLoading && <h3 className='card-content'>{content}</h3>}
-      {isLoading && <Spinner />}
+      <h3 className='card-content'>{content}</h3>
+      {/* {isLoading && <Spinner />} */}
     </div>
   )
 }
