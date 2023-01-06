@@ -7,10 +7,11 @@
   top: 0;
   bottom: 0;
   background-color: variables.$black-op-05;
+  padding: 1rem;
   &-content {
     margin: 0 auto;
     margin-top: 5rem;
-    width: 500px;
+    max-width: 500px;
     min-height: 300px;
     border-radius: 1rem;
     background-color: variables.$white;
@@ -51,5 +52,15 @@
   }
   .spinner {
     margin: 3rem auto;
+  }
+  @media screen and (max-width: 468px) {
+    &-content {
+      h4 {
+        font-size: 1.4rem;
+      }
+      > p {
+        font-size: 1rem;
+      }
+    }
   }
 }
