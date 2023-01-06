@@ -36,46 +36,48 @@ const Table = ({ columns, onShowDetail, handleSorting }: TableProps) => {
 
   return (
     <>
-      {!currentTableData && <Spinner />}
-      {currentTableData && (
-        <div className='table-container'>
-          <table className='table'>
-            <thead>
-              <tr>
-                {columns.map(({ label, accessor, sortable }) => {
-                  const cl = sortable
-                    ? sortField === accessor && order === SortOrder.asc
-                      ? 'up'
-                      : sortField === accessor && order === SortOrder.desc
-                      ? 'down'
-                      : 'default'
-                    : ''
-                  return (
-                    <th
-                      key={accessor}
-                      onClick={sortable ? () => handleSortingChange(accessor) : () => {}}
-                      className={cl}
-                    >
-                      {label}
-                    </th>
-                  )
-                })}
-              </tr>
-            </thead>
-            <tbody>
-              {currentTableData &&
-                currentTableData.map((country) => (
-                  <tr key={country.ID} onClick={() => onShowDetail(country)}>
-                    <td>{country.Country}</td>
-                    <td>{country.TotalConfirmed}</td>
-                    <td>{country.TotalDeaths}</td>
-                    <td>{country.TotalRecovered}</td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+      <div className='table-wrapper'>
+        {(!currentTableData || currentTableData.length === 0) && <Spinner />}
+        {currentTableData && currentTableData.length !== 0 && (
+          <div className='table-container'>
+            <table className='table'>
+              <thead>
+                <tr>
+                  {columns.map(({ label, accessor, sortable }) => {
+                    const cl = sortable
+                      ? sortField === accessor && order === SortOrder.asc
+                        ? 'up'
+                        : sortField === accessor && order === SortOrder.desc
+                        ? 'down'
+                        : 'default'
+                      : ''
+                    return (
+                      <th
+                        key={accessor}
+                        onClick={sortable ? () => handleSortingChange(accessor) : () => {}}
+                        className={cl}
+                      >
+                        {label}
+                      </th>
+                    )
+                  })}
+                </tr>
+              </thead>
+              <tbody>
+                {currentTableData &&
+                  currentTableData.map((country) => (
+                    <tr key={country.ID} onClick={() => onShowDetail(country)}>
+                      <td>{country.Country}</td>
+                      <td>{country.TotalConfirmed}</td>
+                      <td>{country.TotalDeaths}</td>
+                      <td>{country.TotalRecovered}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
       {currentTableData && currentTableData.length !== 0 && (
         <Pagination
           className='pagination-bar'

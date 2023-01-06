@@ -11,6 +11,11 @@
   &-container {
     overflow: auto;
   }
+  &-wrapper {
+    .spinner {
+      margin: 2rem auto;
+    }
+  }
   thead tr {
     background-color: variables.$green-dark;
     color: variables.$white;
